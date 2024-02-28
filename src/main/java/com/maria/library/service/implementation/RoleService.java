@@ -24,13 +24,23 @@ public class RoleService implements IRoleService {
     }
 
     @Override
-    public Optional<Role> getById(Long id) {
+    public Role getById(Long id) {
         Optional<Role> role = roleRepository.readById(id);
         if (role.isEmpty()) {
             throw new RoleNotFoundException("The role does not exist.");
         }
-        return role;
+        return role.get();
     }
+
+    @Override
+    public Long getIdByName(String name) {
+        Optional<Long> roleId = roleRepository.readIdByName(name);
+        if (roleId.isEmpty()) {
+            throw new RoleNotFoundException("The role does not exist.");
+        }
+        return roleId.get();
+    }
+
 
     @Override
     public void save(Role role) {

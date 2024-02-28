@@ -10,6 +10,8 @@ public interface IRoleRepository {
 
     Optional<Role> readById(Long id);
 
+    Optional<Long> readIdByName(String name);
+
     int create(Role role);
 
     int update(Role role);

@@ -10,6 +10,8 @@ public interface IBookService {
 
     Optional<Book> getById(Long id);
 
+    Optional<Book> getByTitle(String  title);
+
     void save(Book book);
 
     void update(Book book);

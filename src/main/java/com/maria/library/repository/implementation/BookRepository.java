@@ -1,6 +1,6 @@
 package com.maria.library.repository.implementation;
 
-import com.maria.library.mapper.BookMapper;
+import com.maria.library.repository.mapper.BookMapper;
 import com.maria.library.model.Book;
 import com.maria.library.repository.IBookRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +14,7 @@ public class BookRepository implements IBookRepository {
     private final JdbcTemplate jdbcTemplate;
     private static final String READ_ALL_QUERY = "SELECT * FROM book;";
     private static final String READ_BY_ID_QUERY = "SELECT * FROM book WHERE id = ?;";
+    private static final String READ_BY_TITLE_QUERY = "SELECT * FROM book WHERE title = ?;";
     private static final String CREATE_QUERY = "INSERT INTO book(title, publicationYear, clientId, categoryId) VALUES (?, ?, ?, ?);";
     private static final String UPDATE_QUERY = "UPDATE book SET title = ?, publicationYear = ?, clientId = ?, categoryId = ?;";
     private static final String DELETE_QUERY = "DELETE FROM book WHERE id = ?;";
@@ -33,6 +34,12 @@ public class BookRepository implements IBookRepository {
                 .stream()
                 .findFirst();
     }
+
+    @Override
+    public Optional<Book> readByTitle(String title) {
+        return jdbcTemplate.query(READ_BY_TITLE_QUERY, new BookMapper(), title)
+                .stream()
+                .findFirst();    }
 
     @Override
     public int create(Book book) {

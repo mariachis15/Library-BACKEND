@@ -10,6 +10,8 @@ public interface IBookRepository {
 
     Optional<Book> readById(Long id);
 
+    Optional<Book> readByTitle(String title);
+
     int create(Book book);
 
     int update(Book book);

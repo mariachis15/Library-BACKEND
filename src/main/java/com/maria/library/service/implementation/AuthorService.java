@@ -27,7 +27,7 @@ public class AuthorService implements IAuthorService {
     public Optional<Author> getById(Long id) {
         Optional<Author> author = authorRepository.readById(id);
         if (author.isEmpty()) {
-            throw new AuthorNotFoundException("The author does not exist.");
+            return Optional.empty();
         }
         return author;
     }

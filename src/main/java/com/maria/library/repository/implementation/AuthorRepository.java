@@ -1,6 +1,6 @@
 package com.maria.library.repository.implementation;
 
-import com.maria.library.mapper.AuthorMapper;
+import com.maria.library.repository.mapper.AuthorMapper;
 import com.maria.library.model.Author;
 import com.maria.library.repository.IAuthorRepository;
 import org.springframework.jdbc.core.JdbcTemplate;

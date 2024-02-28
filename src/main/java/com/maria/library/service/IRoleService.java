@@ -8,7 +8,9 @@ import java.util.Optional;
 public interface IRoleService {
     List<Role> getAll();
 
-    Optional<Role> getById(Long id);
+    Role getById(Long id);
+
+    Long getIdByName(String name);
 
     void save(Role role);
 

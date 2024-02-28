@@ -1,6 +1,6 @@
 package com.maria.library.repository.implementation;
 
-import com.maria.library.mapper.CategoryMapper;
+import com.maria.library.repository.mapper.CategoryMapper;
 import com.maria.library.model.Category;
 import com.maria.library.repository.ICategoryRepository;
 import org.springframework.jdbc.core.JdbcTemplate;

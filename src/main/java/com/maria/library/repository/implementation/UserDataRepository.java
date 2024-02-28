@@ -1,6 +1,6 @@
 package com.maria.library.repository.implementation;
 
-import com.maria.library.mapper.UserDataMapper;
+import com.maria.library.repository.mapper.UserDataMapper;
 import com.maria.library.model.UserData;
 import com.maria.library.repository.IUserDataRepository;
 import org.springframework.jdbc.core.JdbcTemplate;

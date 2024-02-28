@@ -1,8 +1,9 @@
 package com.maria.library.repository.implementation;
 
-import com.maria.library.mapper.RoleMapper;
+import com.maria.library.repository.mapper.RoleMapper;
 import com.maria.library.model.Role;
 import com.maria.library.repository.IRoleRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +16,7 @@ public class RoleRepository implements IRoleRepository {
 
     private static final String READ_ALL_QUERY = "SELECT * FROM role;";
     private static final String READ_BY_ID_QUERY = "SELECT * FROM role WHERE id = ?;";
+    private static final String READ_ID_BY_NAME = "SELECT id FROM role WHERE name = ?;";
     private static final String CREATE_QUERY = "INSERT INTO role VALUES (?);";
     private static final String UPDATE_QUERY = "UPDATE role SET name(name) = ?;";
     private static final String DELETE_QUERY = "DELETE FROM role WHERE id = ?;";
@@ -33,6 +35,14 @@ public class RoleRepository implements IRoleRepository {
         return jdbcTemplate.query(READ_BY_ID_QUERY, new RoleMapper(), id)
                 .stream()
                 .findFirst();
+    }
+
+    public Optional<Long> readIdByName(String name) {
+        try {
+            return Optional.of(jdbcTemplate.queryForObject(READ_ID_BY_NAME, Long.class, name));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     @Override

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class BookService implements IBookService {
     private final IBookRepository bookRepository;
@@ -28,6 +29,12 @@ public class BookService implements IBookService {
         if (book.isEmpty()) {
             throw new BookNotFoundException("The book does not exist.");
         }
+        return book;
+    }
+
+    @Override
+    public Optional<Book> getByTitle(String title) {
+        Optional<Book> book = bookRepository.readByTitle(title);
         return book;
     }
 
