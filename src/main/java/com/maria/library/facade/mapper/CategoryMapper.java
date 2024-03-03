@@ -6,8 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CategoryMapper {
 
-    public Category mapToEntity(String name) {
-        Category category = new Category(name);
-        return category;
+    public Category mapToEntity(String categoryName) {
+        return new Category(categoryName);
     }
 }

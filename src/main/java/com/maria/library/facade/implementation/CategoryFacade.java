@@ -15,6 +15,7 @@ public class CategoryFacade implements ICategoryFacade {
         this.categoryMapper = categoryMapper;
         this.categoryService = categoryService;
     }
+
     public void addCategory(String name) {
         Category category = categoryMapper.mapToEntity(name);
         categoryService.save(category);

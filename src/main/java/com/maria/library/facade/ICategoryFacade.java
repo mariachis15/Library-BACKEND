@@ -1,5 +1,5 @@
 package com.maria.library.facade;
 
 public interface ICategoryFacade {
-    void addCategory(String name);
+    void addCategory(String categoryName);
 }

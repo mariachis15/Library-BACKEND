@@ -1,7 +1,7 @@
 package com.maria.library.controller;
 
 import com.maria.library.facade.ICategoryFacade;
-import com.maria.library.service.ICategoryService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +16,8 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> insert(@RequestParam String name) {
-        categoryFacade.addCategory(name);
+    public ResponseEntity<Void> insert(@RequestParam String categoryName) {
+        categoryFacade.addCategory(categoryName);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
