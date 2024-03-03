@@ -15,11 +15,4 @@ public class BookMapper {
         book.setPublicationYear(bookDto.getPublicationYear());
         return book;
     }
-
-    public BookAuthor mapToBookAuthor(long authorId, long bookId) {
-        BookAuthor bookAuthor = new BookAuthor();
-        bookAuthor.setAuthorId(authorId);
-        bookAuthor.setBookId(bookId);
-        return bookAuthor;
-    }
 }

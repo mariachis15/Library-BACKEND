@@ -1,6 +1,5 @@
 package com.maria.library.model;
 
-import lombok.*;
 
 public class Category {
     Long id;
@@ -8,6 +7,9 @@ public class Category {
 
     public Category(String name) {
         this.name = name;
+    }
+
+    public Category() {
     }
 
     public Long getId() {
