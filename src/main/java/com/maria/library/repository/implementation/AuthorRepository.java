@@ -15,7 +15,7 @@ public class AuthorRepository implements IAuthorRepository {
     private static final String READ_ALL_QUERY = "SELECT * FROM author;";
     private static final String READ_BY_ID_QUERY = "SELECT * FROM author WHERE id = ?;";
     private static final String CREATE_QUERY = "INSERT INTO author(firstName, lastName, numberOfBooks) VALUES (?, ?, ?);";
-    private static final String UPDATE_QUERY = "UPDATE author SET firstName = ?, lastName = ?, numberOfBooks = ?;";
+    private static final String UPDATE_QUERY = "UPDATE author SET firstName = ?, lastName = ?, numberOfBooks = ? WHERE id = ?;";
     private static final String DELETE_QUERY = "DELETE FROM author WHERE id = ?;";
 
     public AuthorRepository(JdbcTemplate jdbcTemplate) {
@@ -41,7 +41,7 @@ public class AuthorRepository implements IAuthorRepository {
 
     @Override
     public int update(Author author) {
-        return jdbcTemplate.update(UPDATE_QUERY, author.getFirstname(), author.getLastname(), author.getNumberOfBooks());
+        return jdbcTemplate.update(UPDATE_QUERY, author.getFirstname(), author.getLastname(), author.getNumberOfBooks(), author.getId());
     }
 
     @Override
