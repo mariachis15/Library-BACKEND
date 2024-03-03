@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class AuthorMapper {
 
     public Author mapToEntity(AuthorDto authorDto) {
-        Author authorData   = new Author(authorDto.getFirstname(), authorDto.getLastname(), authorDto.getNumberOfBooks());
-        return authorData;
+        Author author = new Author(authorDto.getFirstname(), authorDto.getLastname(), authorDto.getNumberOfBooks());
+        return author;
     }
 }

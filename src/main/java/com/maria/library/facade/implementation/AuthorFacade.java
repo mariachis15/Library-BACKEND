@@ -21,5 +21,4 @@ public class AuthorFacade implements IAuthorFacade {
        Author author = authorMapper.mapToEntity(authorDto);
        authorService.save(author);
    }
-
 }
