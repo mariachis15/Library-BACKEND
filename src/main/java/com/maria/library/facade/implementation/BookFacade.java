@@ -94,7 +94,7 @@ public class BookFacade implements IBookFacade {
                     .filter(c -> c.getId() == book.getCategoryId())
                     .findFirst().get();
 
-            BookDetailsDto bookDetailsDto = bookMapper.mapToEntity(book, author, category);
+            BookDetailsDto bookDetailsDto = bookMapper.mapToBookDetailsDto(book, author, category);
             bookDetailsDtoList.add(bookDetailsDto);
         }
         return new Response<>(bookDetailsDtoList);
@@ -139,7 +139,7 @@ public class BookFacade implements IBookFacade {
                     .filter(c -> c.getId() == book.getCategoryId())
                     .findFirst().get();
 
-            BookDetailsDto bookDetailsDto = bookMapper.mapToEntity(book, author, category);
+            BookDetailsDto bookDetailsDto = bookMapper.mapToBookDetailsDto(book, author, category);
             bookDetailsDtoList.add(bookDetailsDto);
         }
         return new Response<>(bookDetailsDtoList);

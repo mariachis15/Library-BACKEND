@@ -1,18 +1,29 @@
 package com.maria.library.facade.dto;
 
 public class BookDetailsDto {
+    private Long id;
     private String title;
     private Long publicationYear;
     private String category;
     private String author;
 
-    public BookDetailsDto() {}
+    public BookDetailsDto() {
+    }
 
-    public BookDetailsDto(String title, Long publicationYear, String category, String author) {
+    public BookDetailsDto(Long id, String title, Long publicationYear, String category, String author) {
+        this.id = id;
         this.title = title;
         this.publicationYear = publicationYear;
         this.category = category;
         this.author = author;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {

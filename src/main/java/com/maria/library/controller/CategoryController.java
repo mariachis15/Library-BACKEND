@@ -1,10 +1,15 @@
 package com.maria.library.controller;
 
+import com.maria.library.common.Response;
 import com.maria.library.facade.ICategoryFacade;
 
+import com.maria.library.facade.dto.BookDetailsDto;
+import com.maria.library.model.Category;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/category")
@@ -20,4 +25,11 @@ public class CategoryController {
         categoryFacade.addCategory(categoryName);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+    @GetMapping
+    public ResponseEntity<Response<List<Category>>> getAllCategories() {
+        Response<List<Category>> response = categoryFacade.getAllCategories();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 }
