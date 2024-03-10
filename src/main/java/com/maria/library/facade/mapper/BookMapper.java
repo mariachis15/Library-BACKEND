@@ -18,8 +18,8 @@ public class BookMapper {
         book.setPublicationYear(bookDto.getPublicationYear());
         return book;
     }
+
     public BookDetailsDto mapToEntity(Book book, Author author, Category category) {
-        BookDetailsDto bdo = new BookDetailsDto(book.getTitle(), book.getPublicationYear(), category.getName(), author.getFirstname() + " " + author.getLastname());
-        return bdo;
+        return (new BookDetailsDto(book.getTitle(), book.getPublicationYear(), category.getName(), author.getFirstname() + " " + author.getLastname()));
     }
 }
