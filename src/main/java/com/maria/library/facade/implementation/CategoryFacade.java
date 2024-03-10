@@ -24,6 +24,7 @@ public class CategoryFacade implements ICategoryFacade {
         Category category = categoryMapper.mapToEntity(name);
         categoryService.save(category);
     }
+
     @Override
     public Response<List<Category>> getAllCategories() {
         List<Category> categories = categoryService.getAll();

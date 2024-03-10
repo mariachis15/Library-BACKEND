@@ -25,10 +25,10 @@ public class AuthorController {
         authorFacade.addAuthor(authorDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
     @GetMapping
     public ResponseEntity<Response<List<AuthorDetailsDto>>> getAllAuthors() {
         Response<List<AuthorDetailsDto>> response = authorFacade.getAllAuthors();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 }

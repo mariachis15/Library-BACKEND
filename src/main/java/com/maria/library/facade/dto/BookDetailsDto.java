@@ -7,14 +7,7 @@ public class BookDetailsDto {
     private String category;
     private String author;
 
-    public BookDetailsDto() {}
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public BookDetailsDto() {
     }
 
     public BookDetailsDto(Long id, String title, Long publicationYear, String category, String author) {
@@ -23,6 +16,14 @@ public class BookDetailsDto {
         this.publicationYear = publicationYear;
         this.category = category;
         this.author = author;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
