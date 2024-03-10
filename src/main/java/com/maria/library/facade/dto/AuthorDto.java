@@ -5,6 +5,15 @@ public class AuthorDto {
     private String lastname;
     private Long numberOfBooks;
 
+    public AuthorDto() {
+    }
+
+    public AuthorDto(String firstname, String lastname, Long numberOfBooks) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.numberOfBooks = numberOfBooks;
+    }
+
     public String getFirstname() {
         return firstname;
     }
