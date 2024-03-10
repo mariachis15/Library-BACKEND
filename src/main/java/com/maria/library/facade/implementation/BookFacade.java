@@ -62,31 +62,10 @@ public class BookFacade implements IBookFacade {
     @Override
     public Response<List<BookDetailsDto>> getAllBooks() {
         List<Book> books = bookService.getAll();
-        List<Category> categories = categoryService.getAll();
         List<BookAuthor> bookAuthors = bookAuthorService.getAll();
         List<Author> authors = authorService.getAll();
-        List<BookDetailsDto> bookDetailsDtoList = new ArrayList<>();
-
-        for (var book : books) {
-            var bookAuthor = bookAuthors
-                    .stream()
-                    .filter(b -> b.getBookId() == book.getId())
-                    .findFirst().get();
-
-            var author = authors
-                    .stream()
-                    .filter(a -> a.getId() == bookAuthor.getAuthorId())
-                    .findFirst().get();
-
-            var category = categories
-                    .stream()
-                    .filter(c -> c.getId() == book.getCategoryId())
-                    .findFirst().get();
-
-            BookDetailsDto bookDetailsDto = bookMapper.mapToEntity(book, author, category);
-            bookDetailsDtoList.add(bookDetailsDto);
-        }
-        return new Response<List<BookDetailsDto>>(bookDetailsDtoList);
+        List<Category> categories = categoryService.getAll();
+        return getList(books, bookAuthors, authors, categories);
     }
 
     @Override
@@ -100,7 +79,6 @@ public class BookFacade implements IBookFacade {
         bookAuthors = bookAuthors.stream().filter(ba -> ba.getAuthorId() == authorId).toList();
 
         for (var bookAuthor : bookAuthors) {
-
             var author = authors
                     .stream()
                     .filter(a -> a.getId() == bookAuthor.getAuthorId())
@@ -116,7 +94,7 @@ public class BookFacade implements IBookFacade {
                     .filter(c -> c.getId() == book.getCategoryId())
                     .findFirst().get();
 
-            BookDetailsDto bookDetailsDto = bookMapper.mapToEntity(book, author, category);
+            BookDetailsDto bookDetailsDto = bookMapper.mapToBookDetailsDto(book, author, category);
             bookDetailsDtoList.add(bookDetailsDto);
         }
         return new Response<>(bookDetailsDtoList);
@@ -128,29 +106,8 @@ public class BookFacade implements IBookFacade {
         List<BookAuthor> bookAuthors = bookAuthorService.getAll();
         List<Author> authors = authorService.getAll();
         List<Category> categories = categoryService.getAll();
-        List<BookDetailsDto> bookDetailsDtoList = new ArrayList<>();
         books = books.stream().filter(b -> b.getClientId() == clientId).toList();
-
-        for (var book : books) {
-            var bookAuthor = bookAuthors
-                    .stream()
-                    .filter(b -> b.getBookId() == book.getId())
-                    .findFirst().get();
-
-            var author = authors
-                    .stream()
-                    .filter(a -> a.getId() == bookAuthor.getAuthorId())
-                    .findFirst().get();
-
-            var category = categories
-                    .stream()
-                    .filter(c -> c.getId() == book.getCategoryId())
-                    .findFirst().get();
-
-            BookDetailsDto bookDetailsDto = bookMapper.mapToEntity(book, author, category);
-            bookDetailsDtoList.add(bookDetailsDto);
-        }
-        return new Response<>(bookDetailsDtoList);
+        return getList(books, bookAuthors, authors, categories);
     }
 
     @Override
@@ -159,9 +116,13 @@ public class BookFacade implements IBookFacade {
         List<BookAuthor> bookAuthors = bookAuthorService.getAll();
         List<Author> authors = authorService.getAll();
         List<Category> categories = categoryService.getAll();
-        List<BookDetailsDto> bookDetailsDtoList = new ArrayList<>();
         books = books.stream().filter(b -> b.getClientId() == 0).toList();
+        return getList(books, bookAuthors, authors, categories);
 
+    }
+
+    private Response<List<BookDetailsDto>> getList(List<Book> books, List<BookAuthor> bookAuthors, List<Author> authors, List<Category> categories) {
+        List<BookDetailsDto> bookDetailsDtoList = new ArrayList<>();
         for (var book : books) {
             var bookAuthor = bookAuthors
                     .stream()
@@ -178,10 +139,9 @@ public class BookFacade implements IBookFacade {
                     .filter(c -> c.getId() == book.getCategoryId())
                     .findFirst().get();
 
-            BookDetailsDto bookDetailsDto = bookMapper.mapToEntity(book, author, category);
+            BookDetailsDto bookDetailsDto = bookMapper.mapToBookDetailsDto(book, author, category);
             bookDetailsDtoList.add(bookDetailsDto);
         }
         return new Response<>(bookDetailsDtoList);
     }
-
 }

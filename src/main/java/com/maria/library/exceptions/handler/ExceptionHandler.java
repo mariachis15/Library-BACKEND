@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 @ControllerAdvice
 public class ExceptionHandler {
 
-/*    @org.springframework.web.bind.annotation.ExceptionHandler(RuntimeException.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Response> handle(Exception exception) {
         return new ResponseEntity<>(new Response(exception), HttpStatus.NOT_FOUND);
-    }*/
+    }
 }
