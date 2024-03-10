@@ -20,6 +20,6 @@ public class BookMapper {
     }
 
     public BookDetailsDto mapToEntity(Book book, Author author, Category category) {
-        return (new BookDetailsDto(book.getTitle(), book.getPublicationYear(), category.getName(), author.getFirstname() + " " + author.getLastname()));
+        return new BookDetailsDto(book.getTitle(), book.getPublicationYear(), category.getName(), author.getFirstname() + " " + author.getLastname());
     }
 }
