@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IRoleFacade {
     Response<List<Role>> getAllRoles();
+
+    void deleteRole(Long id);
 }

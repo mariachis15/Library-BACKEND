@@ -9,4 +9,6 @@ public interface ICategoryFacade {
     void addCategory(String categoryName);
 
     Response<List<Category>> getAllCategories();
+
+    void deleteCategory(Long id);
 }

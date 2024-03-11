@@ -9,4 +9,5 @@ import java.util.List;
 public interface IAuthorFacade {
     void addAuthor(AuthorDto authorDto);
     Response<List<AuthorDetailsDto>> getAllAuthors();
+    void deleteAuthor(Long id);
 }

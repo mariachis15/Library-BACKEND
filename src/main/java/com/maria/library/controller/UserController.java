@@ -6,9 +6,7 @@ import com.maria.library.facade.dto.UserDto;
 import com.maria.library.model.UserData;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,11 @@ public class UserController {
     public ResponseEntity<Response<List<UserDto>>> getAllUsers() {
         Response<List<UserDto>> response = userFacade.getAllUsers();
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteUser(@RequestParam Long id) {
+        userFacade.deleteUser(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

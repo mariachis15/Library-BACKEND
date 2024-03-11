@@ -5,9 +5,7 @@ import com.maria.library.facade.IRoleFacade;
 import com.maria.library.model.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,11 @@ public class RoleController {
     public ResponseEntity<Response<List<Role>>> getAllRoles() {
         Response<List<Role>> response = roleFacade.getAllRoles();
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteRole(@RequestParam Long id) {
+        roleFacade.deleteRole(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

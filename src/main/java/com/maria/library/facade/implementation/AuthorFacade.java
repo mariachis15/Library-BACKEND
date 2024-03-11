@@ -37,4 +37,9 @@ public class AuthorFacade implements IAuthorFacade {
         }
         return new Response<>(authorDetailsDtoList);
     }
+
+    @Override
+    public void deleteAuthor(Long id) {
+        authorService.delete(id);
+    }
 }

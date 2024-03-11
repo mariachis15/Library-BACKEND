@@ -50,4 +50,10 @@ public class BookController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @DeleteMapping
+    public ResponseEntity<Void> deleteBook(@RequestParam Long id) {
+        bookFacade.deleteBook(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
 }

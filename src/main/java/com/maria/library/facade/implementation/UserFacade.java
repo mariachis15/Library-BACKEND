@@ -37,4 +37,9 @@ public class UserFacade implements IUserFacade {
         }
         return new Response<>(userDtoList);
     }
+
+    @Override
+    public void deleteUser(Long id) {
+        userService.delete(id);
+    }
 }

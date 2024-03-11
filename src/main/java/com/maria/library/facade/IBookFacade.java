@@ -15,6 +15,8 @@ public interface IBookFacade {
 
     Response<List<BookDetailsDto>> getBooksByClient(Long clientId);
 
-   Response<List<BookDetailsDto>> getAvailableBooks();
+    Response<List<BookDetailsDto>> getAvailableBooks();
+
+    void deleteBook(Long id);
 
 }

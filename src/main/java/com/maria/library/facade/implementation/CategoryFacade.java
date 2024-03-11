@@ -30,4 +30,9 @@ public class CategoryFacade implements ICategoryFacade {
         List<Category> categories = categoryService.getAll();
         return new Response<>(categories);
     }
+
+    @Override
+    public void deleteCategory(Long id) {
+        categoryService.delete(id);
+    }
 }

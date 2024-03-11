@@ -31,4 +31,10 @@ public class AuthorController {
         Response<List<AuthorDetailsDto>> response = authorFacade.getAllAuthors();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteAuthor(@RequestParam Long id) {
+        authorFacade.deleteAuthor(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }
