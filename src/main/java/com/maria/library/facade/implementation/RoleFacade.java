@@ -21,4 +21,9 @@ public class RoleFacade implements IRoleFacade {
         List<Role> roles = roleService.getAll();
         return new Response<>(roles);
     }
+
+    @Override
+    public void deleteRole(Long id) {
+        roleService.delete(id);
+    }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IUserFacade {
     Response<List<UserDto>> getAllUsers();
+
+    void deleteUser(Long id);
 }

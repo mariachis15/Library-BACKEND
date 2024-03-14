@@ -144,4 +144,9 @@ public class BookFacade implements IBookFacade {
         }
         return new Response<>(bookDetailsDtoList);
     }
+
+    @Override
+    public void deleteBook(Long id) {
+        bookService.delete(id);
+    }
 }

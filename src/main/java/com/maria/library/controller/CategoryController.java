@@ -32,4 +32,10 @@ public class CategoryController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @DeleteMapping
+    public ResponseEntity<Void> deleteCategory(@RequestParam Long id) {
+        categoryFacade.deleteCategory(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
 }
