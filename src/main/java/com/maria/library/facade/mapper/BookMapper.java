@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class BookMapper {
 
     public Book mapToEntity(BookDto bookDto) {
-        return new Book(bookDto.getTitle(), bookDto.getPublicationYear(), bookDto.getCategoryId(), bookDto.getAuthorId());
+        return new Book(bookDto.getTitle(), bookDto.getPublicationYear(), bookDto.getCategoryId());
     }
 
     public BookDetailsDto mapToBookDetailsDto(Book book, Author author, Category category) {
@@ -19,6 +19,6 @@ public class BookMapper {
     }
 
     public Book mapToEntity(Long id, BookDto bookDto) {
-        return new Book(id, bookDto.getTitle(), bookDto.getPublicationYear(), bookDto.getCategoryId(), bookDto.getAuthorId());
+        return new Book(id, bookDto.getTitle(), bookDto.getPublicationYear(), bookDto.getCategoryId());
     }
 }
