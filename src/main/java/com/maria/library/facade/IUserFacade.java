@@ -9,4 +9,6 @@ public interface IUserFacade {
     Response<List<UserDto>> getAllUsers();
 
     void deleteUser(Long id);
+
+    void updateUser(Long id, UserDto userDto);
 }

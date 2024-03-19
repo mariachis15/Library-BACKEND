@@ -8,13 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper {
     public UserData mapToEntity(RegisterDto registerDto, Long roleId) {
-        UserData userData = new UserData(registerDto.getUsername(), registerDto.getPassword(), registerDto.getFirstName(), registerDto.getLastName(), roleId);
-        return userData;
+        return new UserData(registerDto.getUsername(), registerDto.getPassword(), registerDto.getFirstName(), registerDto.getLastName(), roleId);
     }
 
-    public UserDto mapToUserDto(UserData user, String role) {
-        UserDto userDto = new UserDto(user.getId(), user.getUsername(), user.getFirstname(), user.getLastname(), role);
-        return userDto;
+    public UserDto mapToUserDto(UserData user) {
+        return new UserDto(user.getId(), user.getUsername(), user.getPasswordUser(), user.getFirstname(), user.getLastname(), user.getRoleId());
+    }
+
+    public UserData mapToEntity(Long id, UserDto userDto) {
+        return  new UserData(id,userDto.getUsername(), userDto.getPassword(), userDto.getFirstname(), userDto.getLastname(), userDto.getRoleId());
     }
 
 }

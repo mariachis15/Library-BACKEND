@@ -30,4 +30,10 @@ public class UserController {
         userFacade.deleteUser(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @PutMapping
+    public ResponseEntity<Void> updateUser(@RequestParam Long id, @RequestBody UserDto userDto) {
+        userFacade.updateUser(id, userDto);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }

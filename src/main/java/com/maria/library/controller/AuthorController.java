@@ -37,4 +37,11 @@ public class AuthorController {
         authorFacade.deleteAuthor(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @PutMapping
+    public ResponseEntity<Void> updateAuthor(@RequestParam Long id, @RequestBody AuthorDto authorDto) {
+        authorFacade.updateAuthor(id, authorDto);
+        return ResponseEntity.status(HttpStatus.OK).build();
+
+    }
 }

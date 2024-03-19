@@ -19,6 +19,13 @@ public class Author {
         this.numberOfBooks = numberOfBooks;
     }
 
+    public Author(Long id, String firstname, String lastname, Long numberOfBooks) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.numberOfBooks = numberOfBooks;
+    }
+
     public Long getId() {
         return id;
     }

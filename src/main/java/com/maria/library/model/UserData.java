@@ -21,4 +21,13 @@ public class UserData {
         this.lastname = lastname;
         this.roleId = roleId;
     }
+
+    public UserData(Long id, String username, String passwordUser, String firstname, String lastname, Long roleId) {
+        this.id = id;
+        this.username = username;
+        this.passwordUser = passwordUser;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.roleId = roleId;
+    }
 }

@@ -35,4 +35,11 @@ public class CategoryFacade implements ICategoryFacade {
     public void deleteCategory(Long id) {
         categoryService.delete(id);
     }
+
+    @Override
+    public void updateCategory(Long id, String categoryName) {
+        Category category = categoryMapper.mapToEntity(id, categoryName);
+        categoryService.update(category);
+    }
 }
+

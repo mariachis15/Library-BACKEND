@@ -3,19 +3,21 @@ package com.maria.library.facade.dto;
 public class UserDto {
     private Long id;
     private String username;
+    private String password;
     private String firstname;
     private String lastname;
-    private String role;
+    private Long roleId;
 
     public UserDto() {
     }
 
-    public UserDto(Long id, String username, String firstname, String lastname, String role) {
+    public UserDto(Long id, String username, String password, String firstname, String lastname, Long roleId) {
         this.id = id;
         this.username = username;
+        this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.role = role;
+        this.roleId = roleId;
     }
 
     public Long getId() {
@@ -34,6 +36,14 @@ public class UserDto {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getFirstname() {
         return firstname;
     }
@@ -50,11 +60,11 @@ public class UserDto {
         this.lastname = lastname;
     }
 
-    public String getRole() {
-        return role;
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 }

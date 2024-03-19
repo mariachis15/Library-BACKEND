@@ -149,4 +149,10 @@ public class BookFacade implements IBookFacade {
     public void deleteBook(Long id) {
         bookService.delete(id);
     }
+
+    @Override
+    public void updateBook(Long id, BookDto bookDto) {
+        Book book = bookMapper.mapToEntity(id, bookDto);
+        bookService.update(book);
+    }
 }

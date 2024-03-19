@@ -42,4 +42,10 @@ public class AuthorFacade implements IAuthorFacade {
     public void deleteAuthor(Long id) {
         authorService.delete(id);
     }
+
+    @Override
+    public void updateAuthor(Long id, AuthorDto authorDto) {
+        Author author = authorMapper.mapToEntity(id, authorDto);
+        authorService.update(author);
+    }
 }

@@ -11,4 +11,6 @@ public interface ICategoryFacade {
     Response<List<Category>> getAllCategories();
 
     void deleteCategory(Long id);
+
+    void updateCategory(Long id, String categoryName);
 }
