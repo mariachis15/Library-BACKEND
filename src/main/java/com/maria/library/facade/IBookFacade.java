@@ -19,4 +19,5 @@ public interface IBookFacade {
 
     void deleteBook(Long id);
 
+    void updateBook(Long id, BookDto bookDto);
 }

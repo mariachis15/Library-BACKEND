@@ -56,4 +56,9 @@ public class BookController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
+    @PutMapping
+    public ResponseEntity<Void> updateBook(@RequestParam Long id, @RequestBody BookDto bookDto) {
+        bookFacade.updateBook(id, bookDto);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }

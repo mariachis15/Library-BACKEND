@@ -9,6 +9,11 @@ public class Category {
         this.name = name;
     }
 
+    public Category(Long is, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Category() {
     }
 

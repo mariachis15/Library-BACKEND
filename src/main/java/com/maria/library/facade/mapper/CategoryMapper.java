@@ -9,4 +9,8 @@ public class CategoryMapper {
     public Category mapToEntity(String categoryName) {
         return new Category(categoryName);
     }
+
+    public Category mapToEntity(Long id, String categoryName) {
+        return new Category(id, categoryName);
+    }
 }

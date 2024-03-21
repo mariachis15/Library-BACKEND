@@ -32,7 +32,7 @@ public class UserFacade implements IUserFacade {
 
         for (var user : users) {
             Role role = roleService.getById(user.getRoleId());
-            UserDto userDto = userMapper.mapToUserDto(user, role.getName());
+            UserDto userDto = userMapper.mapToUserDto(user);
             userDtoList.add(userDto);
         }
         return new Response<>(userDtoList);
@@ -41,5 +41,11 @@ public class UserFacade implements IUserFacade {
     @Override
     public void deleteUser(Long id) {
         userService.delete(id);
+    }
+
+    @Override
+    public void updateUser(Long id, UserDto userDto) {
+        UserData userData = userMapper.mapToEntity(id, userDto);
+        userService.update(userData);
     }
 }

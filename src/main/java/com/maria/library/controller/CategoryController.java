@@ -38,4 +38,9 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
+    @PutMapping
+    public ResponseEntity<Void> updateCategory(@RequestParam Long id, @RequestParam String categoryName) {
+        categoryFacade.updateCategory(id, categoryName);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }

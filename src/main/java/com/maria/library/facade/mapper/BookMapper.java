@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
 public class BookMapper {
 
     public Book mapToEntity(BookDto bookDto) {
-        Book book = new Book();
-        book.setCategoryId(bookDto.getCategoryId());
-        book.setTitle(bookDto.getTitle());
-        book.setPublicationYear(bookDto.getPublicationYear());
-        return book;
+        return new Book(bookDto.getTitle(), bookDto.getPublicationYear(), bookDto.getCategoryId());
     }
 
     public BookDetailsDto mapToBookDetailsDto(Book book, Author author, Category category) {
         return new BookDetailsDto(book.getId(), book.getTitle(), book.getPublicationYear(), category.getName(), author.getFirstname() + " " + author.getLastname());
+    }
+
+    public Book mapToEntity(Long id, BookDto bookDto) {
+        return new Book(id, bookDto.getTitle(), bookDto.getPublicationYear(), bookDto.getCategoryId());
     }
 }
